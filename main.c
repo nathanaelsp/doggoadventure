@@ -72,8 +72,8 @@ int main(void)
    // Set Timer Mode (fill that section and replace TMX with selected timer number)
 	while(1)
 	{
-   	REG_TM0D =		63500;																			// TODO: complete this line to set timer initial value
-   	REG_TM0CNT |=	TIMER_FREQUENCY_256 | TIMER_ENABLE	| TIMER_INTERRUPTS;		// TODO: complete this line to set timer frequency and enable timer
+   	REG_TM0D =		63500;	
+   	REG_TM0CNT |=	TIMER_FREQUENCY_256 | TIMER_ENABLE	| TIMER_INTERRUPTS;
 	}
 	return 0;
 }
