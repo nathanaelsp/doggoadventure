@@ -1,0 +1,22 @@
+//pacman sprite
+int pacman_num = 0;
+int pacman_inc = 1;
+int pacman_dir = 0;
+int pacman_x = 0;
+int pacman_y = 0;
+
+extern int pacman_num;
+extern int pacman_inc;
+extern int pacman_x;
+extern int pacman_y;
+extern int pacman_dir;
+int pacman_draw;
+
+void drawPacman()
+{
+	if(pacman_num == pacman_right_close) pacman_inc = 1;
+	if(pacman_num == pacman_right_openfull) pacman_inc = -1;
+	pacman_num += pacman_inc;
+	pacman_draw = pacman_num + 4*pacman_dir;
+	drawSprite(pacman_draw,0,pacman_x,pacman_y);
+}
