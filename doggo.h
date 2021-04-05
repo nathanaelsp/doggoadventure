@@ -69,26 +69,18 @@ void drawDoggo_pathmap(void)
 
 	//intersect
 	if(doggo_intersect == 1){
-		//down has been pressed & tile below is empty, move down
-		if(doggo_dir_next == 0 && pathmap[doggo_pathmap_y+1][doggo_pathmap_x] == 1){
-			doggo_pathmap_y++;
+		//down has been pressed & tile below is empty, face down
+		if(doggo_dir_next == 0 && pathmap[doggo_pathmap_y+1][doggo_pathmap_x] == 1)
 			doggo_dir = 0;
-		}
-		//up has been pressed & tile above is empty, move down
-		else if(doggo_dir_next == 1 && pathmap[doggo_pathmap_y-1][doggo_pathmap_x] == 1){
-			doggo_pathmap_y--;
+		//up has been pressed & tile above is empty, face up
+		else if(doggo_dir_next == 1 && pathmap[doggo_pathmap_y-1][doggo_pathmap_x] == 1)
 			doggo_dir = 1;
-		}
-		//right has been pressed & tile to the right is empty, move right
-		else if(doggo_dir_next == 2 && pathmap[doggo_pathmap_y][doggo_pathmap_x+1] == 1){
-			doggo_pathmap_x++;
+		//right has been pressed & tile to the right is empty, face right
+		else if(doggo_dir_next == 2 && pathmap[doggo_pathmap_y][doggo_pathmap_x+1] == 1)
 			doggo_dir = 2;
-		}
-		//left has been pressed & tile to the left is empty, move left
-		else if(doggo_dir_next == 3 && pathmap[doggo_pathmap_y][doggo_pathmap_x-1] == 1){
-			doggo_pathmap_x--;
+		//left has been pressed & tile to the left is empty, face left
+		else if(doggo_dir_next == 3 && pathmap[doggo_pathmap_y][doggo_pathmap_x-1] == 1)
 			doggo_dir = 3;
-		}
 		//continue moving in current direction
 		doggo_move();
 	}
@@ -102,6 +94,7 @@ void drawDoggo_pathmap(void)
 	counter++;
 	counter = counter%5;
 	drawSprite(doggo_face + doggo_dir*2, 0, doggo_x, doggo_y);
+	drawSprite(target_tile, 1, doggo_pathmap_x*8, doggo_pathmap_y*8);
 }
 
 void drawDoggo(void)
