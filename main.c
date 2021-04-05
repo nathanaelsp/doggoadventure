@@ -1,6 +1,7 @@
 // -----------------------------------------------------------------------------
 // C-Skeleton to be used with HAM Library from www.ngine.de
 // -----------------------------------------------------------------------------
+
 #include "mygbalib.h"
 #include "doggo.h"
 
@@ -11,9 +12,13 @@
 //doggo sprite
 int doggo_face = doggo_down_close;
 int doggo_dir = 0;
-int doggo_x = 0;
-int doggo_y = 0;
-int doggo_speed = 1;
+int doggo_dir_next = 0;
+int doggo_x = 8;
+int doggo_y = 8;
+int doggo_pathmap_x = 1;
+int doggo_pathmap_y = 1;
+int doggo_speed = 0;
+int doggo_intersect = 0;
 
 void Handler(void)
 {
@@ -24,7 +29,6 @@ void Handler(void)
    	// TODO: Handle timer interrupt here
 		checkbutton();
 		drawDoggo_pathmap();
-		//drawSprite(number,1,x,y);
    }
    
    REG_IF = REG_IF; // Update interrupt table, to confirm we have handled this interrupt
@@ -73,4 +77,3 @@ int main(void)
 	}
 	return 0;
 }
-
